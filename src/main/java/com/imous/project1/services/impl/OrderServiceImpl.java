@@ -19,8 +19,12 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findAll();
     }
 
-    public OrderEntity createOrder(OrderEntity commande){
-        return orderRepository.save(commande);
+    public OrderEntity createOrder(OrderEntity order){
+        return orderRepository.save(order);
+    }
+
+    public OrderEntity findOrderById(Long id){
+        return  orderRepository.findById(id).get();
     }
 
 }

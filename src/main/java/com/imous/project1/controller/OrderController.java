@@ -13,11 +13,12 @@ import java.util.List;
 @RequestMapping("/api/orders")
 public class OrderController {
 
+    //Injection de dépendances
     @Autowired
     OrderService orderService;
 
     @GetMapping
-    public ResponseEntity<List<OrderEntity>> getAllCommandes(){
+    public ResponseEntity<List<OrderEntity>> getAllOrders(){
          List<OrderEntity> orderEntities = orderService.findAllOrder();
          return ResponseEntity.ok(orderEntities);
     }
@@ -27,6 +28,13 @@ public class OrderController {
         OrderEntity orderEntity1 = orderService.createOrder(orderEntity);
         return ResponseEntity.ok(orderEntity1);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<OrderEntity> findById(@PathVariable Long id){
+        OrderEntity order1 = orderService.findOrderById(id);
+        return ResponseEntity.ok(order1);
+    }
+
 
 
 }

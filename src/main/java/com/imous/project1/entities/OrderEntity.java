@@ -9,12 +9,22 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
-
 public class OrderEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String reference;
     private LocalDate orderDate;
+
+
+
+
+
+
+
+
+
+
+
 
     public Long getId() {
         return id;

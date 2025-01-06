@@ -7,4 +7,5 @@ import java.util.List;
 public interface OrderService {
     List<OrderEntity> findAllOrder();
     OrderEntity createOrder(OrderEntity commande);
+    OrderEntity findOrderById(Long id);
 }
