@@ -1,9 +1,10 @@
 package com.imous.project1.services;
 
-import com.imous.project1.entities.Order;
+import com.imous.project1.entities.OrderEntity;
 
 import java.util.List;
 
 public interface OrderService {
-    List<Order> findAllOrder();
+    List<OrderEntity> findAllOrder();
+    OrderEntity createOrder(OrderEntity commande);
 }

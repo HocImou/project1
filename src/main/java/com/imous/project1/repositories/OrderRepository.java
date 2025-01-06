@@ -1,7 +1,9 @@
 package com.imous.project1.repositories;
 
-import com.imous.project1.entities.Order;
+import com.imous.project1.entities.OrderEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface OrderRepository extends JpaRepository<Order, Long> {
+@Repository
+public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 }
