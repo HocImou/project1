@@ -27,4 +27,16 @@ public class OrderServiceImpl implements OrderService {
         return  orderRepository.findById(id).get();
     }
 
+    public void deleteOrder(Long id){
+        orderRepository.deleteById(id);
+    }
+
+    public OrderEntity updateOrder(Long id, OrderEntity orderEntity){
+         OrderEntity orderFind = orderRepository.findById(id).get();
+        orderFind.setReference(orderEntity.getReference());
+        orderFind.setOrderDate(orderEntity.getOrderDate());
+      return  orderRepository.save(orderFind);
+
+
+    }
 }

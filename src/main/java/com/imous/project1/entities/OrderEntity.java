@@ -1,12 +1,11 @@
 package com.imous.project1.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class OrderEntity {
@@ -14,22 +13,31 @@ public class OrderEntity {
     private Long id;
     private String reference;
     private LocalDate orderDate;
+    @ManyToMany
+    private Set<Product> products;
 
+    @Override
+    public boolean equals(Object obj) {
+        // Vérifie si les deux objets sont égaux
+        if (this == obj) {
+            return true; // Même référence mémoire
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false; // Null ou classes différentes
+        }
+        OrderEntity that = (OrderEntity) obj;
+        // Compare les ids si disponibles
+        return Objects.equals(id, that.id); // Compares `id` which is usually the unique identifier
+    }
 
-
-
-
-
-
-
-
-
-
-
+    @Override
+    public int hashCode() {
+        // Utiliser `id` pour calculer le hash code
+        return Objects.hash(id);
+    }
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }

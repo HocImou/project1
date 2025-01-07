@@ -8,4 +8,6 @@ public interface OrderService {
     List<OrderEntity> findAllOrder();
     OrderEntity createOrder(OrderEntity commande);
     OrderEntity findOrderById(Long id);
+    void deleteOrder(Long id);
+    OrderEntity updateOrder(Long id, OrderEntity orderEntity);
 }
